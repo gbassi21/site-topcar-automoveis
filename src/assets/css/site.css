@@ -1452,3 +1452,9 @@ html:not(.js) .favoritar, html:not(.js) .cabecalho__favoritos { display: none; }
 .rodape__redes a:hover { color: #fff; }
 .rodape__dados .icone { color: var(--acento); }
 .rodape__notas { border-top-color: var(--borda); }
+
+/* TopCar: logo com o teto do carro; um pouco mais alto que o padrão para o letreiro ficar legível. */
+.logo__marca { height: 30px; }
+@media (min-width: 1024px) { .logo__marca { height: 38px; } }
+:root[data-tema="escuro"] .logo__marca .logo__topcar { fill: var(--vermelho-no-preto); }
+:root[data-tema="escuro"] .logo__marca .logo__teto { fill: #D7D6D9; }
