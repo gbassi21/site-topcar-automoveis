@@ -7,7 +7,7 @@
   <meta name="description" content="{{ descricao or (loja.descricao + ' em ' + loja.endereco.cidade + '. Compra, venda, troca e financiamento.') }}">
   {% if loja.demonstracao %}<meta name="robots" content="noindex, nofollow">{% endif %}
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#0C0C0E">
+  <meta name="theme-color" content="#FFFFFF">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="{{ titulo }} · {{ loja.nome }}">
@@ -17,7 +17,7 @@
   <link rel="preload" href="/assets/fontes/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   {% if precarregar %}{{ precarregarIlustracao(precarregar, "(min-width: 1024px) 56vw, 100vw") | safe }}{% endif %}
   {#- Tema antes do primeiro desenho (sem piscar): a escolha guardada pelo botão sol/lua ou a do aparelho. -#}
-  <script>(function (d) { var t; try { t = localStorage.getItem("tema"); } catch (e) {} d.classList.add("js"); d.dataset.tema = t === "claro" || t === "escuro" ? t : matchMedia("(prefers-color-scheme: dark)").matches ? "escuro" : "claro"; })(document.documentElement)</script>
+  <script>(function (d) { var t; try { t = localStorage.getItem("tema"); } catch (e) {} d.classList.add("js"); d.dataset.tema = t === "escuro" ? "escuro" : "claro"; })(document.documentElement)</script>
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | versao }}">
   {%- if loja.cores.principal %}
   {#- Cores da marca (empresa.json): ação, hover e a versão clara usada no tema escuro. #}

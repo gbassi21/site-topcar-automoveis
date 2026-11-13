@@ -1427,3 +1427,28 @@ html:not(.js) .favoritar, html:not(.js) .cabecalho__favoritos { display: none; }
 @media (min-width: 1024px) {
   .vitrine--parecidos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* TopCar: tema claro. O topo da home, o topo das páginas, o rodapé e a faixa de demonstração
+   deixam o preto e seguem o tema (claros no padrão; escuros só se a pessoa escolher a lua). */
+.demo { background: var(--cinza); color: var(--texto-2); border-bottom: 1px solid var(--borda); }
+.hero, .topo { background: var(--cinza); color: var(--texto); }
+.hero__sub, .topo__lead { color: var(--texto-2); }
+.hero :focus-visible, .rodape :focus-visible { outline-color: var(--vermelho); }
+.busca { box-shadow: 0 0 0 1px var(--borda-forte), var(--sombra-leve, 0 10px 30px rgba(12, 12, 14, .08)); }
+.pilula { border-color: var(--borda-forte); background: var(--branco); color: var(--texto); }
+.pilula .icone { color: var(--acento); }
+.pilula:hover { background: var(--texto); border-color: var(--texto); color: var(--branco); }
+.pilula:hover .icone { color: var(--branco); }
+.trilha--clara, .trilha--clara a { color: var(--texto-2); }
+.trilha--clara [aria-current] { color: var(--texto); }
+.trilha--clara li + li::before { color: var(--borda-forte); }
+.topo__dados { color: var(--texto-2); }
+.topo__dados .icone { color: var(--acento); }
+.topo__dados a { color: var(--texto); }
+.topo__quadro { box-shadow: 0 0 0 1px var(--borda); }
+.rodape { background: var(--cinza); color: var(--texto-2); border-top-color: var(--borda); }
+.rodape a, .rodape__titulo, .rodape__demo strong { color: var(--texto); }
+.rodape__redes a { border-color: var(--borda-forte); }
+.rodape__redes a:hover { color: #fff; }
+.rodape__dados .icone { color: var(--acento); }
+.rodape__notas { border-top-color: var(--borda); }

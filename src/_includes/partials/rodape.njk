@@ -2,8 +2,8 @@
   <div class="envoltorio">
     <div class="rodape__grade">
       <div class="rodape__marca">
-        <a class="logo logo--escuro" href="/" aria-label="{{ loja.nome }}, página inicial">
-          {{ logotipo.logo("escuro", 30) | safe }}
+        <a class="logo" href="/" aria-label="{{ loja.nome }}, página inicial">
+          {{ logotipo.logo("claro", 30) | safe }}
           {%- if loja.marca.complemento %}
           <span class="logo__divisor" aria-hidden="true"></span>
           <span class="logo__nome" aria-hidden="true">{{ loja.marca.complemento }}</span>
