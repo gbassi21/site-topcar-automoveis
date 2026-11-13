@@ -1477,3 +1477,9 @@ html:not(.js) .favoritar, html:not(.js) .cabecalho__favoritos { display: none; }
 .endereco__app:hover { border-color: var(--texto); }
 .endereco__app:hover .icone { color: var(--acento); }
 .rodape .endereco__app, .topo__dados .endereco__app { color: var(--texto); }
+
+/* Celular: os círculos das redes viram inline-flex (alvo de toque) e perdiam o centro do ícone. */
+.rodape__redes a { justify-content: center; }
+/* Endereço com os botões de mapa: o pino fica na altura da primeira linha. */
+.rodape__dados li:has(.endereco), .unidade__dados li:has(.endereco), .topo__dados li:has(.endereco) { align-items: flex-start; }
+.rodape__dados li:has(.endereco) > .icone, .unidade__dados li:has(.endereco) > .icone { margin-top: 3px; }
