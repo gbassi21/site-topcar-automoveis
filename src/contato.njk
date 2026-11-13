@@ -5,7 +5,7 @@ titulo: Contato e localização
 eleventyComputed:
   descricao: "Endereço, horário e WhatsApp da {{ loja.nome }}, em {{ loja.endereco.cidade }}."
 ---
-{% from "macros.njk" import topoPagina, tituloSecao %}
+{% from "macros.njk" import topoPagina, tituloSecao, enderecoLoja %}
 
 {{ topoPagina({ titulo: "Contato e localização", trilha: "Contato", lead: "Endereço, horário e WhatsApp" + (" da loja e da oficina" if loja.oficina else " da loja") + ", em " + loja.endereco.cidade + ".", imagem: "ilustra-localizacao", mapa: loja.nome + ", " + loja.endereco.logradouro + ", " + loja.endereco.bairro + ", " + loja.endereco.cidade }) }}
 
@@ -21,7 +21,7 @@ eleventyComputed:
         <h3 class="unidade__titulo unidade__titulo--icone">{{ icone(u.icone) | safe }}{{ u.nome }}</h3>
         <p class="unidade__assunto">{{ u.assunto }}</p>
         <ul class="unidade__dados">
-          <li>{{ icone("map-pin") | safe }}<span>{{ u.endereco }}</span></li>
+          <li>{{ icone("map-pin") | safe }}{% if loop.first %}{{ enderecoLoja(u.endereco, loja.abrirNoMaps, loja.abrirNoWaze) }}{% else %}<span>{{ u.endereco }}</span>{% endif %}</li>
           <li>{{ icone("clock") | safe }}<span>{{ u.horario }}</span></li>
           {% if u.ig %}<li>{{ icone("instagram") | safe }}<a href="{{ u.ig.link }}" target="_blank" rel="noopener">{{ u.ig.usuario }}</a></li>{% endif %}
         </ul>

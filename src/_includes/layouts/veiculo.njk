@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 ---
-{% from "macros.njk" import tituloSecao, cardVeiculo, botaoFavorito %}
+{% from "macros.njk" import tituloSecao, cardVeiculo, botaoFavorito, enderecoLoja %}
 {%- set outros = collections.veiculos | parecidos(page.fileSlug) %}
 <div class="veiculo">
   <div class="envoltorio">
@@ -62,7 +62,7 @@ layout: layouts/base.njk
         <ul class="painel__confianca">
           {% if loja.oficina %}<li>{{ icone("wrench") | safe }}<span>Oficina própria{% if loja.oficina.referencia %}, {{ loja.oficina.referencia }}{% endif %}: <a href="/oficina/">{{ loja.oficina.nome }}</a>.</span></li>{% endif %}
           {% if loja.google %}<li>{{ icone("star") | safe }}<span>Loja com nota {{ loja.google.nota }} no Google ({{ loja.google.avaliacoes }} avaliações). <a href="{{ loja.google.link }}" target="_blank" rel="noopener">Ver no Google</a></span></li>{% endif %}
-          <li>{{ icone("map-pin") | safe }}<span>{{ loja.endereco.logradouro }}, {{ loja.endereco.cidade }}. <a href="/contato/">Como chegar</a></span></li>
+          <li>{{ icone("map-pin") | safe }}{{ enderecoLoja(loja.endereco.logradouro + ", " + loja.endereco.cidade, loja.abrirNoMaps, loja.abrirNoWaze) }}</li>
         </ul>
       </aside>
 

@@ -98,3 +98,6 @@
 {% macro quadroIlustracao(nome, sizes = "(min-width: 1024px) 40vw, 100vw", classe = "") %}
 <div class="quadro-ia {{ classe }}">{{ ilustracao(nome, sizes) | safe }}</div>
 {% endmacro %}
+
+{#- Endereço da loja clicável: o texto abre o Google Maps; embaixo, Google Maps e Waze. -#}
+{% macro enderecoLoja(texto, maps, waze) %}<span class="endereco"><a class="endereco__texto" href="{{ maps }}" target="_blank" rel="noopener">{{ texto }}</a><span class="endereco__apps"><a class="endereco__app" href="{{ maps }}" target="_blank" rel="noopener">{{ icone("googlemaps") | safe }}Google Maps</a><a class="endereco__app" href="{{ waze }}" target="_blank" rel="noopener">{{ icone("waze") | safe }}Waze</a></span></span>{% endmacro %}

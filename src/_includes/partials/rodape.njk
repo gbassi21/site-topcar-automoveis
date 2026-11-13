@@ -1,3 +1,4 @@
+{% from "macros.njk" import enderecoLoja %}
 <footer class="rodape">
   <div class="envoltorio">
     <div class="rodape__grade">
@@ -19,7 +20,7 @@
       <div class="rodape__unidade">
         <h2 class="rodape__titulo">{{ loja.nome }}</h2>
         <ul class="rodape__dados">
-          <li>{{ icone("map-pin") | safe }}<span>{{ loja.endereco.logradouro }}, {{ loja.endereco.bairro }}, {{ loja.endereco.cidade }}, CEP {{ loja.endereco.cep }}</span></li>
+          <li>{{ icone("map-pin") | safe }}{{ enderecoLoja(loja.endereco.logradouro + ", " + loja.endereco.bairro + ", " + loja.endereco.cidade + ", CEP " + loja.endereco.cep, loja.abrirNoMaps, loja.abrirNoWaze) }}</li>
           <li>{{ icone("clock") | safe }}<span>{{ loja.horario }}</span></li>
           <li>{{ icone("whatsapp") | safe }}<a href="{{ wa(loja.mensagens.geral) }}" target="_blank" rel="noopener">{{ loja.whatsapp.exibicao }}</a></li>
           {% if loja.instagram %}<li>{{ icone("instagram") | safe }}<a href="{{ loja.instagram.link }}" target="_blank" rel="noopener">{{ loja.instagram.usuario }}</a></li>{% endif %}

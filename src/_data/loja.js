@@ -67,6 +67,11 @@ export default {
   entrega,
   repasse: Boolean(e.repasse),
   mapa: rota(enderecoCompleto),
+  // Endereço clicável: abre a ficha da loja no Google Maps ou a rota no Waze (coordenadas, se houver).
+  abrirNoMaps: busca(`${e.nome}, ${enderecoCompleto}`),
+  abrirNoWaze: e.coordenadas
+    ? `https://waze.com/ul?ll=${encodeURIComponent(String(e.coordenadas).replace(/\s/g, ""))}&navigate=yes`
+    : `https://waze.com/ul?q=${encodeURIComponent(enderecoCompleto)}&navigate=yes`,
   oficina: temOficina
     ? {
         nome: of.nome,
