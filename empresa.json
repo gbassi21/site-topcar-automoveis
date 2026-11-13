@@ -1,0 +1,73 @@
+{
+  "_leia": "ÚNICO arquivo a preencher para cada empresa (passo a passo em COMO-USAR.md). Campo sem dado: deixe \"\" e o site esconde ou mostra 'a confirmar'. Os dados abaixo são de uma EMPRESA FICTÍCIA de exemplo.",
+
+  "demonstracao": true,
+  "nome": "Auto Exemplo Seminovos",
+  "logo": {
+    "sigla": "AE",
+    "complemento": "Seminovos"
+  },
+  "cores": {
+    "principal": "#1D5BD8",
+    "principalEscura": "#1747A8",
+    "principalNoEscuro": "#6B9BFF"
+  },
+
+  "descricao": "Seminovos e usados multimarcas",
+  "endereco": {
+    "logradouro": "Rua Exemplo, 100",
+    "bairro": "Centro",
+    "cidade": "Cidade Exemplo (UF)",
+    "cep": "00000-000"
+  },
+  "whatsapp": "(11) 90000-0000",
+  "horario": "Seg a sex, 8h às 18h; sáb, 8h às 12h",
+  "instagram": "@autoexemplo",
+  "instagramSeguidores": "",
+  "cnpj": "",
+
+  "google": {
+    "nota": "",
+    "avaliacoes": "",
+    "consultadoEm": "",
+    "link": ""
+  },
+  "googleMapsChave": "",
+  "depoimentos": [],
+
+  "valoresEm": "10/nov/2026",
+  "entrega": {
+    "titulo": "",
+    "texto": ""
+  },
+  "repasse": false,
+
+  "oficina": {
+    "ativa": true,
+    "nome": "Auto Exemplo Mecânica",
+    "endereco": "Rua Exemplo, 110",
+    "referencia": "ao lado da loja",
+    "cep": "00000-000",
+    "desde": "",
+    "horario": "Seg a sex, 8h às 18h",
+    "whatsapp": "(11) 90000-0001",
+    "instagram": "",
+    "instagramSeguidores": "",
+    "google": {
+      "nota": "",
+      "avaliacoes": "",
+      "link": "",
+      "temas": []
+    },
+    "servicos": [
+      { "nome": "Alinhamento 3D", "icone": "crosshair", "imagem": "oficina-alinhamento" },
+      { "nome": "Balanceamento", "icone": "scale" },
+      { "nome": "Pneus", "icone": "life-buoy", "imagem": "oficina-pneus" },
+      { "nome": "Freios", "icone": "disc-3", "imagem": "oficina-freios" },
+      { "nome": "Injeção eletrônica", "icone": "cpu" },
+      { "nome": "Óleo e fluido de câmbio", "icone": "droplets", "imagem": "oficina-oleo" },
+      { "nome": "Suspensão", "icone": "arrow-up-down" },
+      { "nome": "Motor", "icone": "engine" }
+    ]
+  }
+}

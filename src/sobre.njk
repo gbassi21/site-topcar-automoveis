@@ -1,0 +1,71 @@
+---
+layout: layouts/base.njk
+permalink: /sobre/
+titulo: Quem somos
+eleventyComputed:
+  descricao: "{{ loja.nome }}: {{ loja.descricao | lower }} em {{ loja.endereco.cidade }}."
+---
+{% from "macros.njk" import topoPagina, tituloSecao, quadroIlustracao %}
+
+{{ topoPagina({ titulo: "Quem somos", lead: loja.nome + ": " + (loja.descricao | lower) + " na " + loja.endereco.logradouro + ", " + loja.endereco.cidade + ((", com a oficina " + loja.oficina.nome) if loja.oficina else "") + ".", imagem: "atendimento-loja" }) }}
+
+<section class="faixa faixa--branca" aria-labelledby="titulo-frentes">
+  <div class="envoltorio">
+    {{ tituloSecao("titulo-frentes", "Loja e oficina" if loja.oficina else "A loja") }}
+    <ul class="unidades">
+      <li class="unidade">
+        <p class="unidade__marca">{{ logotipo.logo("claro", 26) | safe }}<span>{{ loja.marca.complemento }}</span></p>
+        <h3 class="unidade__titulo">{{ loja.descricao }}</h3>
+        <ul class="unidade__dados">
+          <li>{{ icone("car-front") | safe }}<span>Multimarcas, do popular ao premium</span></li>
+          <li>{{ icone("arrow-left-right") | safe }}<span>Compra, venda, troca e financiamento via banco</span></li>
+          {% if loja.google %}<li>{{ icone("star") | safe }}<span>Nota {{ loja.google.nota }} no Google ({{ loja.google.avaliacoes }} avaliações)</span></li>{% endif %}
+          {% if loja.instagram %}<li>{{ icone("instagram") | safe }}<span>{{ loja.instagram.usuario }}{% if loja.instagram.seguidores %}, {{ loja.instagram.seguidores }} seguidores{% endif %}</span></li>{% endif %}
+        </ul>
+        <a class="link-acao" href="/estoque/">Ver o estoque{{ icone("arrow-right") | safe }}</a>
+      </li>
+      {%- if loja.oficina %}
+      <li class="unidade">
+        <p class="unidade__marca">{{ icone("wrench") | safe }}<span>{{ loja.oficina.nome }}</span></p>
+        <h3 class="unidade__titulo">Oficina{% if loja.oficina.desde %}, desde {{ loja.oficina.desde }}{% endif %}</h3>
+        <ul class="unidade__dados">
+          <li>{{ icone("wrench") | safe }}<span>Mecânica geral, alinhamento 3D, balanceamento e pneus</span></li>
+          <li>{{ icone("map-pin") | safe }}<span>{{ loja.oficina.endereco }}{% if loja.oficina.referencia %}, {{ loja.oficina.referencia }}{% endif %}</span></li>
+          {% if loja.oficina.google %}<li>{{ icone("star") | safe }}<span>Nota {{ loja.oficina.google.nota }} no Google ({{ loja.oficina.google.avaliacoes }} avaliações)</span></li>{% endif %}
+          {% if loja.oficina.instagram %}<li>{{ icone("instagram") | safe }}<span>{{ loja.oficina.instagram.usuario }}{% if loja.oficina.instagram.seguidores %}, {{ loja.oficina.instagram.seguidores }} seguidores{% endif %}</span></li>{% endif %}
+        </ul>
+        <a class="link-acao" href="/oficina/">Conhecer a oficina{{ icone("arrow-right") | safe }}</a>
+      </li>
+      {%- endif %}
+    </ul>
+  </div>
+</section>
+
+{%- if loja.entrega.especial %}
+<section class="faixa faixa--preta" aria-labelledby="titulo-laco">
+  <div class="envoltorio dividido dividido--imagem">
+    <div class="dividido__texto">
+      <h2 class="titulo-secao titulo-secao--claro" id="titulo-laco">{{ tracos("titulo-secao__tracos") | safe }}<span class="titulo-secao__texto">{{ loja.entrega.titulo }}</span></h2>
+      <p class="texto-claro">{{ loja.entrega.texto }}</p>
+      <div class="topo__acoes">
+        <a class="botao botao--primario botao--grande" href="/estoque/">{{ icone("car-front") | safe }}Escolher o meu</a>
+      </div>
+    </div>
+    {{ quadroIlustracao("hero-entrega") }}
+  </div>
+</section>
+{%- endif %}
+
+<section class="faixa faixa--cinza" aria-labelledby="titulo-patio">
+  <div class="envoltorio dividido dividido--imagem">
+    {{ quadroIlustracao("patio-loja") }}
+    <div class="dividido__texto">
+      {{ tituloSecao("titulo-patio", "Venha ver de perto") }}
+      <p class="secao__sub">Os carros estão na loja, na {{ loja.endereco.logradouro }}, {{ loja.endereco.bairro }}, {{ loja.endereco.cidade }}. Horário: {{ loja.horario }}.</p>
+      <div class="topo__acoes topo__acoes--espaco">
+        <a class="botao botao--primario" href="{{ wa(loja.mensagens.geral) }}" target="_blank" rel="noopener">{{ icone("whatsapp") | safe }}{{ loja.whatsapp.exibicao }}</a>
+        <a class="botao botao--secundario" href="/contato/">{{ icone("map-pin") | safe }}Contato e localização</a>
+      </div>
+    </div>
+  </div>
+</section>

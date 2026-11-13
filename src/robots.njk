@@ -1,0 +1,6 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+User-agent: *
+{% if loja.demonstracao %}Disallow: /{% else %}Allow: /{% endif %}

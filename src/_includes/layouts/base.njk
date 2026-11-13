@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ titulo }} · {{ loja.nome }}{% if loja.demonstracao %} (projeto de demonstração){% endif %}</title>
+  <meta name="description" content="{{ descricao or (loja.descricao + ' em ' + loja.endereco.cidade + '. Compra, venda, troca e financiamento.') }}">
+  {% if loja.demonstracao %}<meta name="robots" content="noindex, nofollow">{% endif %}
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0C0C0E">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="{{ titulo }} · {{ loja.nome }}">
+  <meta property="og:image" content="{{ "/og.jpg" | url }}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icone-180.png">
+  <link rel="preload" href="/assets/fontes/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  {% if precarregar %}{{ precarregarIlustracao(precarregar, "(min-width: 1024px) 56vw, 100vw") | safe }}{% endif %}
+  {#- Tema antes do primeiro desenho (sem piscar): a escolha guardada pelo botão sol/lua ou a do aparelho. -#}
+  <script>(function (d) { var t; try { t = localStorage.getItem("tema"); } catch (e) {} d.classList.add("js"); d.dataset.tema = t === "claro" || t === "escuro" ? t : matchMedia("(prefers-color-scheme: dark)").matches ? "escuro" : "claro"; })(document.documentElement)</script>
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | versao }}">
+  {%- if loja.cores.principal %}
+  {#- Cores da marca (empresa.json): ação, hover e a versão clara usada no tema escuro. #}
+  <style>:root { --vermelho: {{ loja.cores.principal }}; --vermelho-escuro: {{ loja.cores.principalEscura or loja.cores.principal }}; --vermelho-no-preto: {{ loja.cores.principalNoEscuro or loja.cores.principal }}; }</style>
+  {%- endif %}
+  <script src="{{ '/assets/js/site.js' | versao }}" defer></script>
+</head>
+<body{% if classeCorpo %} class="{{ classeCorpo }}"{% endif %}>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  {% if loja.demonstracao %}<p class="demo">Projeto de demonstração<span class="demo__resto">. Não é o site oficial da {{ loja.nome }}</span><span class="demo__curto"> · não oficial</span></p>{% endif %}
+  {% include "partials/cabecalho.njk" %}
+  <main id="conteudo">
+    {{ content | safe }}
+  </main>
+  {% include "partials/rodape.njk" %}
+  <dialog class="favoritos" data-favoritos data-numero="{{ loja.whatsapp.numero }}" data-abertura="{{ loja.mensagens.favoritos }}" aria-labelledby="titulo-favoritos">
+    <div class="favoritos__topo">
+      <h2 class="favoritos__titulo" id="titulo-favoritos">{{ icone("heart") | safe }}Carros salvos</h2>
+      <button class="favoritos__fechar" type="button" data-fechar-favoritos aria-label="Fechar">{{ icone("x") | safe }}</button>
+    </div>
+    <ul class="favoritos__lista" data-lista-favoritos></ul>
+    <div class="favoritos__vazio" data-favoritos-vazio>
+      <p><strong>Nenhum carro salvo ainda.</strong> Toque no coração de um carro para guardar aqui e comparar depois.</p>
+      <a class="botao botao--secundario" href="/estoque/">{{ icone("car-front") | safe }}Ver o estoque</a>
+    </div>
+    <div class="favoritos__rodape" data-favoritos-rodape>
+      <a class="botao botao--primario botao--largo" href="{{ wa(loja.mensagens.geral) }}" target="_blank" rel="noopener" data-favoritos-wa>{{ icone("whatsapp") | safe }}Perguntar sobre estes carros</a>
+      <p class="favoritos__nota">Ficam salvos só neste navegador. Preços de quando você salvou; confirme com a loja.</p>
+    </div>
+  </dialog>
+  {%- set daOficina = whatsappFlutuante == "oficina" and loja.oficina %}
+  {%- set contatoFlutuante = loja.oficina.whatsapp if daOficina else loja.whatsapp %}
+  <a class="wa-flutuante" href="{{ wa(loja.mensagens.oficina if daOficina else loja.mensagens.geral, contatoFlutuante.numero) }}" target="_blank" rel="noopener" aria-label="WhatsApp {{ 'da oficina' if daOficina else 'da loja' }}: {{ contatoFlutuante.exibicao }}">
+    {{ icone("whatsapp") | safe }}
+  </a>
+</body>
+</html>
