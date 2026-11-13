@@ -70,7 +70,12 @@
     {%- if t.imagem %}
     <div class="topo__imagem">
       {{ tracos("topo__tracos") | safe }}
+      {%- if t.mapa %}
+      {#- Mapa do Google interativo (arrastar, zoom, abrir no app); carrega só quando chega perto da tela. -#}
+      <div class="topo__quadro topo__quadro--mapa"><iframe class="topo__mapa" src="https://www.google.com/maps?q={{ t.mapa | urlencode }}&hl=pt-BR&z=16&output=embed" title="Mapa: {{ t.mapa }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+      {%- else %}
       <div class="topo__quadro">{{ ilustracao(t.imagem, "(min-width: 1024px) 40vw, 100vw", true) | safe }}</div>
+      {%- endif %}
     </div>
     {%- endif %}
   </div>

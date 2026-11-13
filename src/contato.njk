@@ -7,7 +7,7 @@ eleventyComputed:
 ---
 {% from "macros.njk" import topoPagina, tituloSecao %}
 
-{{ topoPagina({ titulo: "Contato e localização", trilha: "Contato", lead: "Endereço, horário e WhatsApp" + (" da loja e da oficina" if loja.oficina else " da loja") + ", em " + loja.endereco.cidade + ".", imagem: "ilustra-localizacao" }) }}
+{{ topoPagina({ titulo: "Contato e localização", trilha: "Contato", lead: "Endereço, horário e WhatsApp" + (" da loja e da oficina" if loja.oficina else " da loja") + ", em " + loja.endereco.cidade + ".", imagem: "ilustra-localizacao", mapa: loja.nome + ", " + loja.endereco.logradouro + ", " + loja.endereco.bairro + ", " + loja.endereco.cidade }) }}
 
 <section class="faixa faixa--branca" aria-labelledby="titulo-unidades">
   <div class="envoltorio">
