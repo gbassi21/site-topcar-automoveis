@@ -1,9 +1,8 @@
 # Monta o site com o Eleventy e publica no GitHub Pages a cada envio para o branch main.
 # No repositório: Settings > Pages > Source = "GitHub Actions" (uma vez só).
 name: Publicar site
+# Desligado até a prévia ser aprovada: hoje só roda pelo botão "Run workflow" na aba Actions.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read

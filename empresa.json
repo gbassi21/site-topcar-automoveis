@@ -1,49 +1,44 @@
 {
-  "_leia": "ÚNICO arquivo a preencher para cada empresa (passo a passo em COMO-USAR.md). Campo sem dado: deixe \"\" e o site esconde ou mostra 'a confirmar'. Os dados abaixo são de uma EMPRESA FICTÍCIA de exemplo.",
-
+  "_leia": "ÚNICO arquivo a preencher para cada empresa (passo a passo em COMO-USAR.md). Dados da TopCar Automóveis tirados do Linktree e do Google Maps da loja em 13/11/2026. Os 12 carros são EXEMPLOS (fictícios), só para a loja visualizar o site.",
   "demonstracao": true,
-  "nome": "Auto Exemplo Seminovos",
+  "nome": "TopCar Automóveis",
   "logo": {
-    "sigla": "AE",
-    "complemento": "Seminovos"
+    "sigla": "TOPCAR",
+    "complemento": "Automóveis"
   },
   "cores": {
-    "principal": "#1D5BD8",
-    "principalEscura": "#1747A8",
-    "principalNoEscuro": "#6B9BFF"
+    "principal": "#C8101A",
+    "principalEscura": "#9E0C14",
+    "principalNoEscuro": "#FF5C61"
   },
-
   "descricao": "Seminovos e usados multimarcas",
   "endereco": {
-    "logradouro": "Rua Exemplo, 100",
-    "bairro": "Centro",
-    "cidade": "Cidade Exemplo (UF)",
-    "cep": "00000-000"
+    "logradouro": "Av. Paulo Pereira Gomes, 835",
+    "bairro": "Morada de Laranjeiras",
+    "cidade": "Serra (ES)",
+    "cep": "29166-828"
   },
-  "whatsapp": "(11) 90000-0000",
-  "horario": "Seg a sex, 8h às 18h; sáb, 8h às 12h",
-  "instagram": "@autoexemplo",
+  "whatsapp": "(27) 99698-6990",
+  "horario": "Seg a sex, 8h às 18h; sáb, 8h às 14h",
+  "instagram": "@topcarautomoveis_es",
   "instagramSeguidores": "",
   "cnpj": "",
-
   "google": {
-    "nota": "",
-    "avaliacoes": "",
-    "consultadoEm": "",
-    "link": ""
+    "nota": "4,6",
+    "avaliacoes": "96",
+    "consultadoEm": "13/nov/2026",
+    "link": "https://www.google.com/maps/place/TopCar+Automoveis/@-20.1964154,-40.2374274,17z/data=!4m6!3m5!1s0xb81f6d1c608e8b:0x252ec578a8a4f270!8m2!3d-20.1964154!4d-40.2374274"
   },
   "googleMapsChave": "",
   "depoimentos": [],
-
-  "valoresEm": "10/nov/2026",
+  "valoresEm": "13/nov/2026",
   "entrega": {
     "titulo": "",
     "texto": ""
   },
   "repasse": false,
-
   "oficina": {
-    "ativa": true,
+    "ativa": false,
     "nome": "Auto Exemplo Mecânica",
     "endereco": "Rua Exemplo, 110",
     "referencia": "ao lado da loja",
@@ -60,14 +55,42 @@
       "temas": []
     },
     "servicos": [
-      { "nome": "Alinhamento 3D", "icone": "crosshair", "imagem": "oficina-alinhamento" },
-      { "nome": "Balanceamento", "icone": "scale" },
-      { "nome": "Pneus", "icone": "life-buoy", "imagem": "oficina-pneus" },
-      { "nome": "Freios", "icone": "disc-3", "imagem": "oficina-freios" },
-      { "nome": "Injeção eletrônica", "icone": "cpu" },
-      { "nome": "Óleo e fluido de câmbio", "icone": "droplets", "imagem": "oficina-oleo" },
-      { "nome": "Suspensão", "icone": "arrow-up-down" },
-      { "nome": "Motor", "icone": "engine" }
+      {
+        "nome": "Alinhamento 3D",
+        "icone": "crosshair",
+        "imagem": "oficina-alinhamento"
+      },
+      {
+        "nome": "Balanceamento",
+        "icone": "scale"
+      },
+      {
+        "nome": "Pneus",
+        "icone": "life-buoy",
+        "imagem": "oficina-pneus"
+      },
+      {
+        "nome": "Freios",
+        "icone": "disc-3",
+        "imagem": "oficina-freios"
+      },
+      {
+        "nome": "Injeção eletrônica",
+        "icone": "cpu"
+      },
+      {
+        "nome": "Óleo e fluido de câmbio",
+        "icone": "droplets",
+        "imagem": "oficina-oleo"
+      },
+      {
+        "nome": "Suspensão",
+        "icone": "arrow-up-down"
+      },
+      {
+        "nome": "Motor",
+        "icone": "engine"
+      }
     ]
   }
 }

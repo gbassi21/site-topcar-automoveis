@@ -3,7 +3,7 @@ layout: layouts/base.njk
 permalink: /estoque/
 titulo: Estoque de seminovos e usados
 eleventyComputed:
-  descricao: "{{ loja.descricao }} à venda em {{ loja.endereco.cidade }}. Filtre por preço, carroceria, marca, ano e câmbio."
+  descricao: "{{ loja.descricao }} à venda em {{ loja.endereco.cidade }}. Filtre por marca, carroceria, ano, câmbio e preço."
 ---
 {% from "macros.njk" import topoPagina %}
 {%- set veiculos = collections.veiculos %}

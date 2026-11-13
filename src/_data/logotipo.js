@@ -14,8 +14,9 @@ const FONTE = `font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-seri
 const principal = loja.cores.principalEscura || loja.cores.principal || "#B2251D";
 const noEscuro = loja.cores.principalNoEscuro || principal;
 const CORES = {
-  claro: { sigla: "#1D1E22", tracos: principal },
-  escuro: { sigla: "#D7D6D9", tracos: noEscuro },
+  // TopCar: letreiro vermelho e traços grafite, como no logo da loja.
+  claro: { sigla: principal, tracos: "#1D1E22" },
+  escuro: { sigla: noEscuro, tracos: "#D7D6D9" },
 };
 
 const escapar = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
